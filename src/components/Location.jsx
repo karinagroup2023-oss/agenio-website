@@ -33,12 +33,14 @@ export default function Location() {
             className="rounded-2xl overflow-hidden shadow-lg h-80 lg:h-[450px] bg-gray-200"
           >
             <iframe
-              src="https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A51.108451%2C%22lon%22%3A71.430774%2C%22zoom%22%3A16%7D%2C%22theme%22%3A%22dark%22%2C%22hideZoomControl%22%3Afalse%7D"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2503.0!2d71.430774!3d51.108451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDA2JzMwLjQiTiA3McKwMjUnNTAuOCJF!5e0!3m2!1sru!2skz!4v1700000000000!5m2!1sru!2skz"
               width="100%"
               height="100%"
-              frameBorder="0"
-              title="Карта Академии Гениев в Астане"
+              style={{ border: 0 }}
               allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Академия Гениев на карте"
             />
           </motion.div>
 
@@ -63,7 +65,7 @@ export default function Location() {
                   </p>
                   <p className="text-blue-500 text-xs mt-1 font-medium">
                     <Navigation size={12} className="inline mr-1" />
-                    ТРЦ «Хан Шатыр», 4 этаж
+                    ЖК Vivere, 4 этаж
                   </p>
                 </div>
               </div>
@@ -120,7 +122,7 @@ export default function Location() {
                   <p className="text-gray-600 text-sm">
                     Понедельник – Воскресенье
                   </p>
-                  <p className="text-blue-600 font-bold">с 09:00 до 20:00</p>
+                  <p className="text-blue-600 font-bold">09:00 – 19:00</p>
                   <p className="text-gray-400 text-xs mt-0.5">Работаем в выходные дни</p>
                 </div>
               </div>
