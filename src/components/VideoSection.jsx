@@ -94,7 +94,7 @@ export default function VideoSection() {
 
         {/* Facts */}
         <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          {facts.map((fact) => (
+          {facts.map((fact, i) => (
             <motion.div
               key={fact.title}
               initial={{ opacity: 0, y: 20 }}
