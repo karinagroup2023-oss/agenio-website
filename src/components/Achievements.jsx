@@ -9,7 +9,6 @@ function Counter({ target, suffix = '', duration = 2 }) {
   useEffect(() => {
     if (!inView) return
     const start = Date.now()
-    const end = start + duration * 1000
     const timer = setInterval(() => {
       const now = Date.now()
       const progress = Math.min((now - start) / (duration * 1000), 1)
@@ -66,9 +65,9 @@ export default function Achievements() {
 
         {/* Animated counters */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat, i) => (
+          {stats.map((stat) => (
             <motion.div
-              key={i}
+              key={stat.label}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -85,9 +84,9 @@ export default function Achievements() {
 
         {/* Achievement cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {cards.map((card, i) => (
+          {cards.map((card) => (
             <motion.div
-              key={i}
+              key={card.text}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}

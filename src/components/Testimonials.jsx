@@ -101,9 +101,9 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10"
         >
-          {testimonials.map((t, i) => (
+          {testimonials.map((t) => (
             <motion.div
-              key={i}
+              key={t.name}
               variants={card}
               className="bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow flex flex-col"
             >
@@ -144,7 +144,7 @@ export default function Testimonials() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            href="https://2gis.kz/astana"
+            href="https://2gis.kz/astana/firm/70000001053552176"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold text-sm transition-colors"

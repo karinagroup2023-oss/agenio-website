@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Check, Zap } from 'lucide-react'
+import { Check } from 'lucide-react'
 
 const plans = [
   {
@@ -85,9 +85,9 @@ export default function Pricing() {
         </div>
 
         <div className="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {plans.map((plan, i) => (
+          {plans.map((plan) => (
             <motion.div
-              key={i}
+              key={plan.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -127,8 +127,8 @@ export default function Pricing() {
                 </div>
 
                 <ul className="space-y-3 flex-1 mb-8">
-                  {plan.features.map((feature, j) => (
-                    <li key={j} className="flex items-center gap-3 text-sm">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-3 text-sm">
                       <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
                         plan.highlight ? 'bg-yellow-400' : 'bg-blue-100'
                       }`}>
@@ -141,8 +141,10 @@ export default function Pricing() {
 
                 <a
                   href="#cta"
-                  className={`w-full text-center font-bold py-3 rounded-xl transition-colors ${plan.ctaStyle} ${
-                    plan.highlight ? '!bg-yellow-400 !text-gray-900 hover:!bg-yellow-300 !border-0' : ''
+                  className={`w-full text-center font-bold py-3 rounded-xl transition-colors ${
+                    plan.highlight
+                      ? 'bg-yellow-400 hover:bg-yellow-300 text-gray-900'
+                      : plan.ctaStyle
                   }`}
                 >
                   {plan.cta}

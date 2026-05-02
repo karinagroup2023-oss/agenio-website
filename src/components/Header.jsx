@@ -33,7 +33,7 @@ export default function Header() {
               <Zap size={20} className="text-white" fill="white" />
             </span>
             <div className="leading-tight">
-              <span className="font-display font-900 text-xl tracking-wide">Agenio</span>
+              <span className="font-display font-black text-xl tracking-wide">Agenio</span>
               <span className="block text-xs text-blue-200 font-medium leading-none">Академия Гениев</span>
             </div>
           </a>

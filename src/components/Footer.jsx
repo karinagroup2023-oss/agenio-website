@@ -96,7 +96,7 @@ export default function Footer() {
                 </a>
               </div>
               <div className="text-blue-200 text-sm">
-                Пн–Вс: с 09:00 до 20:00
+                Пн–Вс: 09:00–19:00
               </div>
             </div>
 

@@ -17,6 +17,8 @@ export default function CtaSection() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const text = `Здравствуйте! Хочу записаться на пробный урок.%0AИмя: ${encodeURIComponent(form.name)}%0AТелефон: ${encodeURIComponent(form.phone)}%0AКурс: ${encodeURIComponent(form.course || 'не указан')}`
+    window.open(`https://wa.me/77787981078?text=${text}`, '_blank')
     setSubmitted(true)
   }
 

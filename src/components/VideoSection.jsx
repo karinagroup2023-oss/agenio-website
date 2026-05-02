@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Play, Video, Users, Heart } from 'lucide-react'
+import { Video, Users, Heart } from 'lucide-react'
 
 const facts = [
   {
@@ -21,8 +20,6 @@ const facts = [
 ]
 
 export default function VideoSection() {
-  const [playing, setPlaying] = useState(false)
-
   return (
     <section className="py-20 bg-amber-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,18 +68,12 @@ export default function VideoSection() {
             </div>
 
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              {/* Play button */}
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setPlaying(true)}
-                className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl mb-6 group-hover:bg-yellow-400 transition-colors"
-              >
-                <Play size={32} className="text-blue-800 ml-1" fill="currentColor" />
-              </motion.button>
-              <p className="text-white font-bold text-xl">Посмотреть видео о центре</p>
-              <p className="text-blue-200 text-sm mt-1">Занятия по робототехнике в Agenio Астана</p>
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+              <div className="text-6xl mb-4">🎬</div>
+              <p className="text-white font-bold text-xl mb-2">Видео скоро появится</p>
+              <p className="text-blue-200 text-sm max-w-sm">
+                Мы готовим видео с наших занятий — скоро вы сможете увидеть, как проходит обучение в Agenio
+              </p>
             </div>
 
             {/* Decorative icons */}
@@ -103,9 +94,9 @@ export default function VideoSection() {
 
         {/* Facts */}
         <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          {facts.map((fact, i) => (
+          {facts.map((fact) => (
             <motion.div
-              key={i}
+              key={fact.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
