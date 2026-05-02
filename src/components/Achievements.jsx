@@ -65,7 +65,7 @@ export default function Achievements() {
 
         {/* Animated counters */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat) => (
+          {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 30 }}
@@ -84,7 +84,7 @@ export default function Achievements() {
 
         {/* Achievement cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {cards.map((card) => (
+          {cards.map((card, i) => (
             <motion.div
               key={card.text}
               initial={{ opacity: 0, scale: 0.9 }}
