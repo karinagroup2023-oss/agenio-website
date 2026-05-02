@@ -29,7 +29,7 @@ export default function SocialProof() {
     <section className="bg-[#1E3A8A] py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map((item) => (
+          {items.map((item, i) => (
             <motion.div
               key={item.value}
               initial={{ opacity: 0, y: 20 }}

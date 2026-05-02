@@ -54,7 +54,7 @@ export default function WhyUs() {
             </motion.h2>
 
             <div className="space-y-6">
-              {advantages.map((item) => (
+              {advantages.map((item, i) => (
                 <motion.div
                   key={item.title}
                   initial={{ opacity: 0, x: -20 }}
