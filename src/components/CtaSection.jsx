@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { MessageCircle, Phone, Send } from 'lucide-react'
+import { useTelegram } from '../hooks/useTelegram'
 
 const courses = [
   'Робототехника',
@@ -14,11 +15,30 @@ const courses = [
 export default function CtaSection() {
   const [form, setForm] = useState({ name: '', phone: '', course: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const { hapticSuccess, hapticError } = useTelegram()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
+
+    // Уведомление в Telegram администратору
+    try {
+      await fetch('/api/notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+    } catch {
+      hapticError()
+    }
+
+    // Открыть WhatsApp с предзаполненным сообщением
     const text = `Здравствуйте! Хочу записаться на пробный урок.%0AИмя: ${encodeURIComponent(form.name)}%0AТелефон: ${encodeURIComponent(form.phone)}%0AКурс: ${encodeURIComponent(form.course || 'не указан')}`
     window.open(`https://wa.me/77787981078?text=${text}`, '_blank')
+
+    hapticSuccess()
+    setLoading(false)
     setSubmitted(true)
   }
 
@@ -157,9 +177,10 @@ export default function CtaSection() {
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 bg-[#F97316] hover:bg-orange-600 text-white font-bold py-4 rounded-xl transition-colors text-base shadow-lg shadow-orange-500/30"
+                    disabled={loading}
+                    className="w-full flex items-center justify-center gap-2 bg-[#F97316] hover:bg-orange-600 disabled:opacity-70 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-colors text-base shadow-lg shadow-orange-500/30"
                   >
-                    Записаться на пробный урок <Send size={18} />
+                    {loading ? 'Отправляем...' : (<>Записаться на пробный урок <Send size={18} /></>)}
                   </button>
 
                   <p className="text-center text-gray-400 text-xs">

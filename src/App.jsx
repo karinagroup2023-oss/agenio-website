@@ -1,5 +1,7 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
+import { useTelegram } from './hooks/useTelegram'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import SocialProof from './components/SocialProof'
@@ -15,6 +17,13 @@ import Location from './components/Location'
 import Footer from './components/Footer'
 
 function App() {
+  const { expand, ready } = useTelegram()
+
+  useEffect(() => {
+    expand()
+    ready()
+  }, [])
+
   return (
     <div className="font-sans overflow-x-hidden">
       <Header />
