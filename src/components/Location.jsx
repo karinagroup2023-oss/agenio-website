@@ -111,6 +111,29 @@ export default function Location() {
               </div>
             </div>
 
+            {/* Telegram bot */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#2563EB">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.24 14.453l-2.95-.924c-.64-.203-.654-.64.136-.954l11.527-4.445c.535-.194 1.002.131.609.118z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-1">Telegram</h3>
+                  <a
+                    href="https://t.me/geniuses_bot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 font-semibold transition-colors"
+                  >
+                    @geniuses_bot
+                  </a>
+                  <p className="text-gray-400 text-xs mt-0.5">Записаться через Telegram</p>
+                </div>
+              </div>
+            </div>
+
             {/* Hours */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
               <div className="flex gap-4">
